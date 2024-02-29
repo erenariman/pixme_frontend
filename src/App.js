@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./components/Login.js";
+import Register from "./components/Register.js";
+import CurrentProfile from "./pages/current_profile.js";
+import Home from "./pages/home.js";
+import SharedLayout from './pages/SharedLayout.js';
+import Logout from "./components/Logout.js";
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/'} element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path={'/api/social/current-profile/'} element={<CurrentProfile />} />
+          <Route path={'/api/login/'} element={<Login />} />
+          <Route path={'/api/registration/'} element={<Register />} />
+          <Route path={'api/logout/'} element={<Logout />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
