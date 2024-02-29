@@ -28,7 +28,7 @@ const Login = () => {
     <div className={"login"}>
       <form onSubmit={handleSubmit} className={"login-form"}>
         <div>
-          <label>Username</label>
+          <label>Usernamee</label>
           <input
             type="text"
             value={username}
